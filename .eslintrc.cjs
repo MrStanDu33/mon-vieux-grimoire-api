@@ -1,4 +1,5 @@
 /* eslint-env node */
+
 // eslint-disable-next-line import/no-extraneous-dependencies
 require('@rushstack/eslint-patch/modern-module-resolution');
 
@@ -23,7 +24,7 @@ module.exports = {
   parser: '@babel/eslint-parser',
   settings: {
     'import/resolver': {
-      alias: [['$src', './src']],
+      alias: [['#src', './src']],
     },
     jsdoc: {
       mode: 'typescript',
@@ -38,6 +39,8 @@ module.exports = {
     node: true,
   },
   rules: {
+    'prettier/prettier': 'off',
+    'import/extensions': 'off',
     'implicit-arrow-linebreak': 'off',
     'function-paren-newline': 'off',
     'jsdoc/check-access': 'off',

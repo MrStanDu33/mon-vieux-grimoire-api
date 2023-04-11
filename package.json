@@ -8,10 +8,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "link-module-alias clean || echo",
-    "postinstall": "link-module-alias",
-    "start": "node --experimental-vm-modules --experimental-specifier-resolution=node index.js",
-    "dev": "npx nodemon --experimental-vm-modules --experimental-specifier-resolution=node --inspect index.js",
+    "start": "npx vite",
+    "dev": "npx vite",
     "lint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "docs": "jsdoc -c jsdoc.json",
@@ -41,8 +39,8 @@
     "rest",
     "book"
   ],
-  "_moduleAliases": {
-    "$src": "src"
+  "imports": {
+    "#src/*": "./src/*"
   },
   "contributors": [
     {
@@ -52,7 +50,10 @@
     }
   ],
   "devDependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
     "@babel/eslint-parser": "^7.21.3",
+    "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.21.4",
     "@dotenv/cli": "^2.2.2",
     "@rushstack/eslint-patch": "^1.2.0",
@@ -70,5 +71,11 @@
     "jsdoc": "^4.0.2",
     "link-module-alias": "^1.2.0",
     "prettier": "^2.8.7"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "vite": "^4.2.1",
+    "vite-plugin-node": "^3.0.2"
   }
 }

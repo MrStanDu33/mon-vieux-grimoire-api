@@ -6,7 +6,7 @@
   "printWidth": 80,
   "semi": true,
   "tabWidth": 2,
-  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrder": ["^[./]", "^[a-z@]", "^[#]"],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": true,
   "importOrderGroupNamespaceSpecifiers": true,
