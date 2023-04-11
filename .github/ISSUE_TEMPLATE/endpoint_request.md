@@ -6,7 +6,7 @@ labels: ['feature', 'endpoint']
 assignees: ''
 ---
 
-# `/api/my/super/endpoint`
+# **`VERB`** `/api/my/super/endpoint`
 
 ## Description
 
