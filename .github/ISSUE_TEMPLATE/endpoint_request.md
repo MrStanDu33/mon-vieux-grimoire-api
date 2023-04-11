@@ -15,7 +15,7 @@ assignees: ''
 ### Protections
 
 - [ ] 🔒 This endpoint requires to be authenticated.
-- [ ] 👮 This endpoint is only available to resource owner .
+- [ ] 👮 This endpoint is only available to resource owner.
 
 ### Request parameters
 
