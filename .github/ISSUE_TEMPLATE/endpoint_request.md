@@ -12,6 +12,11 @@ assignees: ''
 
 > Describe here the endpoint, why we should call it.
 
+### Protections
+
+- [ ] 🔒 This endpoint requires to be authenticated.
+- [ ] 👮 This endpoint is only available to resource owner .
+
 ### Request parameters
 
 > Describe here all headers we should use while calling the endpoint.
