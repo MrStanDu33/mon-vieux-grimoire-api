@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/prettierrc",
+  "singleQuote": true,
+  "trailingComma": "all",
+  "arrowParens": "always",
+  "printWidth": 80,
+  "semi": true,
+  "tabWidth": 2,
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "importOrderGroupNamespaceSpecifiers": true,
+  "importOrderCaseInsensitive": true
+}

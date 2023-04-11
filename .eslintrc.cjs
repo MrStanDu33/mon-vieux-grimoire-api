@@ -1,0 +1,151 @@
+/* eslint-env node */
+// eslint-disable-next-line import/no-extraneous-dependencies
+require('@rushstack/eslint-patch/modern-module-resolution');
+
+module.exports = {
+  root: true,
+  ignorePatterns: ['docs', 'node_modules'],
+  env: {
+    browser: false,
+    es2021: true,
+    node: true,
+    jest: true,
+  },
+  extends: [
+    'airbnb-base',
+    'plugin:jsdoc/recommended',
+    'plugin:prettier/recommended',
+  ],
+  plugins: ['prettier', 'jsdoc'],
+  parserOptions: {
+    ecmaVersion: 'latest',
+  },
+  parser: '@babel/eslint-parser',
+  settings: {
+    'import/resolver': {
+      alias: [['$src', './src']],
+    },
+    jsdoc: {
+      mode: 'typescript',
+      tagNamePreference: {
+        param: 'param',
+        returns: 'returns',
+        constructor: 'constructor',
+      },
+    },
+  },
+  globals: {
+    node: true,
+  },
+  rules: {
+    'implicit-arrow-linebreak': 'off',
+    'function-paren-newline': 'off',
+    'jsdoc/check-access': 'off',
+    'jsdoc/check-alignment': 2,
+    'jsdoc/check-examples': 0,
+    'jsdoc/check-indentation': 'off',
+    'jsdoc/check-line-alignment': [2, 'always'],
+    'jsdoc/check-param-names': [
+      2,
+      { checkRestProperty: true, allowExtraTrailingParamDocs: false },
+    ],
+    'jsdoc/check-property-names': 2,
+    'jsdoc/check-syntax': 2,
+    'jsdoc/check-tag-names': [2, { definedTags: ['category', 'subcategory'] }],
+    'jsdoc/check-types': 2,
+    'jsdoc/check-values': 2,
+    'jsdoc/empty-tags': 2,
+    'jsdoc/implements-on-classes': 2,
+    'jsdoc/match-description': 'off',
+    'jsdoc/match-name': 'off',
+    'jsdoc/multiline-blocks': [
+      2,
+      {
+        noZeroLineText: true,
+        noSingleLineBlocks: true,
+        singleLineTags: ['lends', 'typedef', 'member', 'type'],
+        noMultilineBlocks: true,
+        minimumLengthForMultiline: 80,
+      },
+    ],
+    'jsdoc/newline-after-description': 2,
+    'jsdoc/no-bad-blocks': 2,
+    'jsdoc/no-defaults': 2,
+    'jsdoc/no-missing-syntax': 'off',
+    'jsdoc/no-multi-asterisks': [2, { allowWhitespace: true }],
+    'jsdoc/no-restricted-syntax': 'off',
+    'jsdoc/no-types': 'off',
+    'jsdoc/no-undefined-types': 2,
+    'jsdoc/require-asterisk-prefix': [2, 'always'],
+    'jsdoc/require-description-complete-sentence': 2,
+    'jsdoc/require-description': [2, { descriptionStyle: 'tag' }],
+    'jsdoc/require-example': 'off',
+    'jsdoc/require-file-overview': [
+      1,
+      {
+        tags: {
+          author: {
+            initialCommentsOnly: true,
+            mustExist: true,
+            preventDuplicates: false,
+          },
+          file: {
+            initialCommentsOnly: true,
+            mustExist: true,
+            preventDuplicates: true,
+          },
+        },
+      },
+    ],
+    'jsdoc/require-hyphen-before-param-description': [2, 'always'],
+    'jsdoc/require-jsdoc': [
+      1,
+      {
+        require: {
+          ArrowFunctionExpression: true,
+          ClassDeclaration: true,
+          ClassExpression: true,
+          FunctionDeclaration: true,
+          FunctionExpression: true,
+          MethodDefinition: true,
+        },
+      },
+    ],
+    'jsdoc/require-param-description': 2,
+    'jsdoc/require-param-name': 2,
+    'jsdoc/require-param-type': 2,
+    'jsdoc/require-param': [2, { checkRestProperty: true }],
+    'jsdoc/require-property': 2,
+    'jsdoc/require-property-description': 2,
+    'jsdoc/require-property-name': 2,
+    'jsdoc/require-property-type': 2,
+    'jsdoc/require-returns-check': 2,
+    'jsdoc/require-returns-description': 2,
+    'jsdoc/require-returns-type': 2,
+    'jsdoc/require-returns': [2, { checkConstructors: true }],
+    'jsdoc/require-throws': 2,
+    'jsdoc/require-yields': 2,
+    'jsdoc/require-yields-check': 2,
+    'jsdoc/sort-tags': 'off',
+    'jsdoc/tag-lines': [
+      2,
+      'always',
+      {
+        count: 1,
+        dropEndLines: true,
+        noEndLines: true,
+        tags: {
+          param: { lines: 'any' },
+          property: { lines: 'any' },
+          function: { lines: 'any' },
+          class: { lines: 'never' },
+          constructs: { lines: 'never' },
+          returns: { lines: 'any' },
+          file: { lines: 'any' },
+          fires: { lines: 'any' },
+        },
+      },
+    ],
+    'jsdoc/valid-types': 1,
+  },
+};

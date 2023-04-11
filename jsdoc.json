@@ -1,0 +1,51 @@
+{
+  "tags": {
+    "dictionaries": ["jsdoc"]
+  },
+  "source": {
+    "include": ["./src", "./tests", "./index.js", "./bin", "README.md"],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/|docs)"
+  },
+  "plugins": ["plugins/markdown", "node_modules/better-docs/typedef-import"],
+  "opts": {
+    "encoding": "utf8",
+    "template": "node_modules/clean-jsdoc-theme",
+    "destination": "docs/",
+    "readme": "README.md",
+    "recurse": true,
+    "theme_opts": {
+      "default_theme": "dark",
+      "add_scripts": "const nestByChar=(menuCategory,menuItems,char)=>{menuItems.map((el)=>{el.dataset.pathName=el.innerText;return el}).filter(({innerText})=>innerText.includes(char)).forEach((menuItem)=>{if(menuItem.closest('ul.category'))return;const paths=menuItem.innerText.split(char);const elementName=paths.pop();paths.forEach((path,index)=>{const categoryPath=paths.join(char).split(path)[0]+path;const existingCategories=menuCategory.querySelectorAll('.category-parent-header');const categoryExists=[...existingCategories].find(({dataset})=>dataset.categoryPath===categoryPath);if(categoryExists!==undefined)return;const category=document.createElement('ul');category.classList.add('category');category.dataset.categoryPath=categoryPath;const categoryHeader=document.createElement('li');categoryHeader.classList.add('category-parent-header');categoryHeader.dataset.categoryPath=categoryPath; category.append(categoryHeader);const categoryHeaderLink=menuCategory.querySelector(`[data-path-name=\"${categoryPath}\"]`);if(categoryHeaderLink!==null){let parentLiToRemove=categoryHeaderLink.parentNode.classList.contains('category-parent-child')?categoryHeaderLink.parentNode:null;categoryHeader.append(categoryHeaderLink);if(parentLiToRemove!==null){parentLiToRemove.remove()}}else{categoryHeader.innerHTML=`<div class=\"sidebar-section-children nolink\"data-path-name=\"${path}\"><a href=\"#\">${path}</a></div>`}if(index===0){menuItem.parentNode.append(category)}else{const parentCategoryPath=categoryPath.split(`${char}${path}`)[0];const parentCategory=menuCategory.querySelector(`[data-category-path=\"${parentCategoryPath}\"]`);const categoryWrapper=document.createElement('li');categoryWrapper.classList.add('category-parent-child');categoryWrapper.append(category);parentCategory.append(categoryWrapper)}});menuItem.querySelector('a').innerText=elementName;const parentCategoryName=paths.join(char);const parentCategory=document.querySelector(`[data-category-path=\"${parentCategoryName}\"]`);const menuItemWrapper=document.createElement('li');menuItemWrapper.classList.add('category-parent-child');menuItemWrapper.append(menuItem);parentCategory.append(menuItemWrapper);});};(()=>{const sidebar=document.querySelector('#sidebar');const menuCategories=sidebar.querySelectorAll('.sidebar-section-children-container');[...menuCategories].forEach((menuCategory)=>{const menuItems=menuCategory.querySelectorAll('.sidebar-section-children');nestByChar(menuCategory,[...menuItems],'/');nestByChar(menuCategory,[...menuItems],'_')})})();",
+      "create_style": ".sidebar-section-children.nolink a { color: #a0a0a0; } .sidebar-section-children a { padding: 0.25rem 0 0.25rem 2rem; } ul.category { list-style: none; } ul.category li.category-parent-child { padding: 0.25rem 0 0.25rem 2rem; }",
+      "homepageTitle": "Mon Vieux Grimoire - API",
+      "title": "Mon Vieux Grimoire - API",
+      "menu": [
+        {
+          "title": "Github",
+          "link": "https://github.com/MrStanDu33/mon-vieux-grimoire-api",
+          "target": "_blank"
+        }
+      ],
+      "sections": [
+        "Classes",
+        "Modules",
+        "Externals",
+        "Events",
+        "Namespaces",
+        "Mixins",
+        "Tutorials",
+        "Interfaces",
+        "Global"
+      ]
+    }
+  },
+  "markdown": {
+    "hardwrap": false,
+    "idInHeadings": true
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  }
+}

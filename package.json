@@ -1,0 +1,74 @@
+{
+  "name": "mon-vieux-grimoire-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "DANIELS-ROTH Stan",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "preinstall": "link-module-alias clean || echo",
+    "postinstall": "link-module-alias",
+    "start": "node --experimental-vm-modules --experimental-specifier-resolution=node index.js",
+    "dev": "npx nodemon --experimental-vm-modules --experimental-specifier-resolution=node --inspect index.js",
+    "lint": "eslint . --ext .js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore",
+    "format": "prettier --write src/",
+    "docs": "jsdoc -c jsdoc.json",
+    "docs:watch": "npx nodemon --exec 'npm run docs' --watch . --ignore ./docs/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MrStanDu33/mon-vieux-grimoire-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MrStanDu33/Flock/issues",
+    "email": "contact@daniels-roth-stan.fr"
+  },
+  "engines": {
+    "node": ">=19.6.0"
+  },
+  "private": "true",
+  "homepage": "https://github.com/MrStanDu33/Flock#readme",
+  "keywords": [
+    "api",
+    "OpenClassrooms",
+    "node",
+    "express",
+    "multer",
+    "mongodb",
+    "mongoose",
+    "rest",
+    "book"
+  ],
+  "_moduleAliases": {
+    "$src": "src"
+  },
+  "contributors": [
+    {
+      "name": "MrStanDu33",
+      "email": "contact@daniels-roth-stan.fr",
+      "url": "https://github.com/MrStanDu33"
+    }
+  ],
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.21.3",
+    "@babel/preset-env": "^7.21.4",
+    "@dotenv/cli": "^2.2.2",
+    "@rushstack/eslint-patch": "^1.2.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
+    "babel-plugin-module-resolver": "^5.0.0",
+    "better-docs": "^2.7.2",
+    "clean-jsdoc-theme": "^4.2.7",
+    "eslint": "^8.38.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-jsdoc": "^40.3.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jsdoc": "^4.0.2",
+    "link-module-alias": "^1.2.0",
+    "prettier": "^2.8.7"
+  }
+}
